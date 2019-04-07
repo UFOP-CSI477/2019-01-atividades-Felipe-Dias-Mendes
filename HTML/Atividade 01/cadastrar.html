@@ -9,7 +9,10 @@
 	<h1>Produto</h1>
 
 	<div> 
-		
+			
+			<label for="nome">Nome</label><br>
+			<input type="text" name="nome" placeholder="Ex: Celular"><br><br>
+
 			<label for="codigo">Codigo</label><br>
 			<input type="number" name="codigo" placeholder="Ex: 001"><br>
 		
@@ -27,12 +30,23 @@
 	
 
 			<br><br><label for="quantidade">Quantidade</label><br>
-			<input type="number" name="quantidade" placeholder="Ex: 100"><br>
+			<input type="number" name="quantidade" placeholder="Ex: 100 un"><br>
+
+			<br><label for="medida">Unidade de Medida</label><br>
+			<input type="text" name="medida" placeholder="Ex: kg, Litro, Km..."><br>
 
 			<br><br><label for="precocusto">Preço de Custo</label>
 			<input type="text" name="precocusto" placeholder="Ex: R$100">
 			<label for="precovenda">Preço de Venda</label>
 			<input type="text" name="precovenda" placeholder="Ex: R$100">
+
+			<br><br><label for="fornecedor">Fornecedor</label><br>
+			<select>
+				<option value="0">Selecione um Fornecedor:</option>
+				<option value="1">X</option>
+				<option value="2">Y</option>
+				<option value="3">Z</option>
+			</select>
 
 			<br><br><label for="garantia">Garantia</label><br>
 			<input type="text" name="garantia" placeholder="Ex: 3 meses">
