@@ -3,56 +3,79 @@
 <head>
 	<title>Cadastro de Produto</title>
 	<meta charset="utf-8">
+
+	<link rel="stylesheet" type="text/css" href="../Bootstrap/bootstrap.css">
 	
 </head>
 <body>
-	<h1>Produto</h1>
+	<div class="jumbotron">
+		<h1>Cadastro</h1>
+		<p>Cadastre seu produto</p>
+	</div>
+	
 
-	<div> 
+	<form style="margin: 30px;">
 			
-			<label for="nome">Nome</label><br>
-			<input type="text" name="nome" placeholder="Ex: Celular"><br><br>
+		<div class="form-group">
+				<label for="nome">Nome</label><br>
+				<input type="text" name="nome" placeholder="Ex: Celular" class="form-control">
+		</div>
 
+		<div class="form-group">
 			<label for="codigo">Código</label><br>
-			<input type="number" name="codigo" placeholder="Ex: 001"><br>
-		
-			<br><label for="Categoria">Categoria</label><br>
-			<select>
+			<input type="number" name="codigo" placeholder="Ex: 001" class="form-control">
+		</div>
+
+		<div class="form-group">
+			<label for="Categoria">Categoria</label>
+			<select class="form-control">
 				<option value="0">Selecione a categoria:</option>
 				<option value="1">Tecnologia</option>
 				<option value="2">Eletrodomésticos</option>
 				<option value="3">Esporte e Lazer</option>
 				<option value="4">Joias e Relógios</option>
 			</select>
+		</div>
 
-			<br><br><label for="descrição">Descrição</label><br>
-			<input type="text" name="descrição" placeholder="Escreva a descrição">
+		<div class="form-group">
+			<label for="descrição">Descrição</label>
+			<input type="text" name="descrição" placeholder="Escreva a descrição" class="form-control">
+		</div>
 	
+		<div class="form-group">
+			<label for="quantidade">Quantidade</label>
+			<input type="number" name="quantidade" placeholder="Ex: 100 un" class="form-control">
+		</div>
 
-			<br><br><label for="quantidade">Quantidade</label><br>
-			<input type="number" name="quantidade" placeholder="Ex: 100 un"><br>
+		<div class="form-group">
+			<label for="medida">Unidade de Medida</label>
+			<input type="text" name="medida" placeholder="Ex: kg, Litro, Km..." class="form-control">
+		</div>
 
-			<br><label for="medida">Unidade de Medida</label><br>
-			<input type="text" name="medida" placeholder="Ex: kg, Litro, Km..."><br>
-
-			<br><br><label for="precocusto">Preço de Custo</label>
-			<input type="text" name="precocusto" placeholder="Ex: R$100">
+		<div class="form-group">
+			<label for="precocusto">Preço de Custo</label>
+			<input type="text" name="precocusto" placeholder="Ex: R$100" class="form-control">
 			<label for="precovenda">Preço de Venda</label>
-			<input type="text" name="precovenda" placeholder="Ex: R$100">
+			<input type="text" name="precovenda" placeholder="Ex: R$100" class="form-control">
+		</div>
 
-			<br><br><label for="fornecedor">Fornecedor</label><br>
-			<select>
+		<div class="form-group">
+			<label for="fornecedor">Fornecedor</label>
+			<select class="form-control">
 				<option value="0">Selecione um Fornecedor:</option>
 				<option value="1">X</option>
 				<option value="2">Y</option>
 				<option value="3">Z</option>
 			</select>
+		</div>
 
-			<br><br><label for="garantia">Garantia</label><br>
-			<input type="text" name="garantia" placeholder="Ex: 3 meses">
+		<div class="form-group">
+			<label for="garantia">Garantia</label>
+			<input type="text" name="garantia" placeholder="Ex: 3 meses" class="form-control">
+		</div>
 
-
-	</div>
+		<button type="submit" class="btn btn-primary"> Cadastrar</button>
+	</form>
 
 
 </body>
