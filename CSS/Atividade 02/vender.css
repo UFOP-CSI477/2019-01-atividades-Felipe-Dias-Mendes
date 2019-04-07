@@ -1,6 +1,7 @@
 /*Definições para venda*/
 
 table, th, td{
+
 	border: 1px solid black;
 	border-collapse: collapse;
 }
@@ -17,6 +18,7 @@ thead tr:hover{
 
 tr:hover{
 	font-size: 40px;
+	background-color: blue;
 }
 tr:active{
 	color: red;
@@ -24,6 +26,7 @@ tr:active{
 
 table{
 	width: 100%;
+	border-radius: 5px;
 }
 
 caption{
@@ -31,9 +34,14 @@ caption{
 	font-size: 20px;
 }
 
+input{
+	border-radius: 5px;
+}
+
 input.quant{
 	width: 100%;
 	margin: 0px;
+	border-radius: 5px;
 }
 
 label.pesq{
@@ -43,4 +51,13 @@ label.pesq{
 
 th{
 	font-size: 20px;
+}
+
+
+h1{
+	padding: 10px;
+	color: blue;
+	background-color: black;
+	border: 10px inset blue;
+	border-radius: 35px;
 }
