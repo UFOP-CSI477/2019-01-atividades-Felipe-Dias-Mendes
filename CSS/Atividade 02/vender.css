@@ -1,8 +1,25 @@
 /*Definições para venda*/
 
-table, tr, td{
+table, th, td{
 	border: 1px solid black;
 	border-collapse: collapse;
+}
+
+th, td{
+	padding: 3px
+}
+
+thead tr:hover{
+	font-size: 60px;
+	color: white;
+	background-color: black;
+}
+
+tr:hover{
+	font-size: 40px;
+}
+tr:active{
+	color: red;
 }
 
 table{
@@ -11,6 +28,7 @@ table{
 
 caption{
 	color: blue;
+	font-size: 20px;
 }
 
 input.quant{
@@ -25,10 +43,4 @@ label.pesq{
 
 th{
 	font-size: 20px;
-}
-
-thead tr: hover{
-	font-size: 30px
-	color: white;
-	background-color: black;
 }
