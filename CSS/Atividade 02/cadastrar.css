@@ -1,0 +1,89 @@
+/* 	DEFINIÇÕES DE CADASTRO */
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body{
+	font-size: 16px;
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+	background: #f3f3f3; 
+}
+
+#nave {
+	background: #fff;
+	border-bottom: 1px solid #d8d8d8;
+	height: 45px;
+}
+
+#area {
+	width: 75%;
+	margin: 0 auto;
+}
+
+#logo{
+	float: left;
+}
+
+#menu{
+	float: right;
+	padding: 10px 0;
+}
+
+#areaprincipal{
+	width: 75%;
+	margin: 10px auto 10px auto;
+
+}
+
+#corpo{
+	background: #fff;
+	padding: 10px;
+}
+
+#button{
+	display: inline-block;
+  font-weight: 400;
+  color: #212529;
+  text-align: center;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-color: transparent;
+  border: 1px solid transparent;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: 0.25rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+
+}
+/*Formatação do menu*/
+a{
+	text-decoration: nome;
+	padding: 5px;
+}
+/*Links não visitados*/
+a:link{
+	color #838383;
+}
+/*Links visitados*/
+a:visited{
+	color: #838383;
+}
+/*Links hover*/
+a:hover {
+	color: #fff;
+	background: #87CEFA;
+}
+/*Links active*/
+
+
+/*Classes*/
+.azul{
+	color: #87CEFA;
+
+}

@@ -4,41 +4,29 @@
 	<title>Cadastro de Produto</title>
 	<meta charset="utf-8">
 
-	<link rel="stylesheet" type="text/css" href="cadastrar.css">
+	<link rel="stylesheet" type="text/css" href="./Bootstrap/bootstrap.css">
 	
 </head>
 <body>
-
-	<div id="nave">
-		<div id="area">
-			<h1 id="logo"><span class="azul">Shop</span>Nice</h1>
-
-			<div id="menu">
-				<a href="principal.html">Home</a>
-				<a href="listar.html">Lista</a>
-				<a href="vender.html">Vendas</a>
-			</div>
-
-		</div>
-
+	<div class="jumbotron">
+		<h1>Cadastro</h1>
+		<p>Cadastre seu produto</p>
 	</div>
+	
 
-	<div id="areaprincipal">
-		<div id="corpo">
-			<h2>Cadastro</h2>
-			<form>
+	<form style="margin: 30px;">
 			
-		<div>
+		<div class="form-group">
 				<label for="nome">Nome</label><br>
 				<input type="text" name="nome" placeholder="Ex: Celular" class="form-control">
 		</div>
 
-		<div>
+		<div class="form-group">
 			<label for="codigo">Código</label><br>
 			<input type="number" name="codigo" placeholder="Ex: 001" class="form-control">
 		</div>
 
-		<div>
+		<div class="form-group">
 			<label for="Categoria">Categoria</label>
 			<select class="form-control">
 				<option value="0">Selecione a categoria:</option>
@@ -49,29 +37,29 @@
 			</select>
 		</div>
 
-		<div>
+		<div class="form-group">
 			<label for="descrição">Descrição</label>
 			<input type="text" name="descrição" placeholder="Escreva a descrição" class="form-control">
 		</div>
 	
-		<div>
+		<div class="form-group">
 			<label for="quantidade">Quantidade</label>
 			<input type="number" name="quantidade" placeholder="Ex: 100 un" class="form-control">
 		</div>
 
-		<div>
+		<div class="form-group">
 			<label for="medida">Unidade de Medida</label>
 			<input type="text" name="medida" placeholder="Ex: kg, Litro, Km..." class="form-control">
 		</div>
 
-		<div>
+		<div class="form-group">
 			<label for="precocusto">Preço de Custo</label>
 			<input type="text" name="precocusto" placeholder="Ex: R$100" class="form-control">
 			<label for="precovenda">Preço de Venda</label>
 			<input type="text" name="precovenda" placeholder="Ex: R$100" class="form-control">
 		</div>
 
-		<div>
+		<div class="form-group">
 			<label for="fornecedor">Fornecedor</label>
 			<select class="form-control">
 				<option value="0">Selecione um Fornecedor:</option>
@@ -81,16 +69,13 @@
 			</select>
 		</div>
 
-		<div>
+		<div class="form-group">
 			<label for="garantia">Garantia</label>
-			<input type="text" name="garantia" placeholder="Ex: 3 meses" class="form-control"><br>
-			<button id="button" type="submit"> Cadastrar</button>
+			<input type="text" name="garantia" placeholder="Ex: 3 meses" class="form-control">
 		</div>
 
-		
+		<button type="submit" class="btn btn-primary"> Cadastrar</button>
 	</form>
-		</div>
-	</div>
 
 
 </body>
