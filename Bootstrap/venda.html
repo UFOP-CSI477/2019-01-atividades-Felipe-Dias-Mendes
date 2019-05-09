@@ -20,10 +20,10 @@
 			    <a class="nav-link" href="principal.html">Página Principal</a>
 			  </li>
 			  <li class="nav-item">
-			    <a class="nav-link active" href="Listar.html">Listar</a>
+			    <a class="nav-link " href="Listar.html">Listar</a>
 			  </li>
 			  <li class="nav-item">
-			    <a class="nav-link" href="venda.html">Vender</a>
+			    <a class="nav-link active" href="venda.html">Vender</a>
 			  </li>
 			  <li class="nav-item">
 			    <a class="nav-link" href="cadastrar.html">Cadastrar</a>
@@ -31,11 +31,16 @@
 			</ul>
 		</div>
 	</nav>
-
-
+	
+	
 	<div class="container">
 		<div class="jumbotron">
 			<h1>Lista de Produtos</h1>
+		</div>
+
+		<div class="form-group col-md-4">
+			<label for="pesquisa">Pesquisa</label>
+			<input type="text" name="pesquisa" placeholder="Ex: Tecnologia" class="form-control">
 		</div>
 
 		<table class="table">
@@ -43,11 +48,10 @@
 			<thead>
 				<tr>
 					<th>Código</th>
-					<th>Nome</th>
-					<th>Categoria</th>
-					<th>Estoque</th>
-					<th>Fornecedor</th>
-					<th>Preço</th>
+				<th>Nome</th>
+				<th>Categoria</th>
+				<th>Fornecedor</th>
+				<th>Preço</th>
 				
 				</tr>
 			</thead>
@@ -57,36 +61,32 @@
 					<td>001</td>
 					<td>S15</td>
 					<td>Tecnologia</td>
-					<td>127</td>
 					<td>Samsung</td>
 					<td>R$ 15.000,00</td>
 				</tr>
 
 				<tr>
 					<td>002</td>
-					<td>Ferrari 488</td>
-					<td>Carro</td>
-					<td>14</td>
-					<td>Ferrari</td>
-					<td>R$ 1.500.000,00</td>
+					<td>Moto G9</td>
+					<td>Tecnologia</td>
+					<td>Motorola</td>
+					<td>R$ 10.000,00</td>
 				</tr>
 
 				<tr>
 					<td>003</td>
-					<td>Geladeira</td>
-					<td>Eletrodomésticos</td>
-					<td>306</td>
-					<td>Brastemp</td>
-					<td>R$ 3.629,00</td>
+					<td>Iphone X</td>
+					<td>Tecnologia</td>
+					<td>Apple</td>
+					<td>R$ 9.999.999,99</td>
 				</tr>
 
 				<tr>
 					<td>004</td>
-					<td>Relógio</td>
-					<td>Joias e Relógios</td>
-					<td>482</td>
-					<td>Lince</td>
-					<td>R$ 179,90</td>
+					<td>Redmi 6</td>
+					<td>Tecnologia</td>
+					<td>Xiaomi</td>
+					<td>R$ 20,00</td>
 				</tr>
 				
 
@@ -97,6 +97,10 @@
 			</tfoot>
 
 		</table>
+		<div class="form-group col-md-4">
+			<label for="pesquisa">Quantidade</label>
+			<input type="number" name="pesquisa" placeholder="Ex: 000" class="form-control">
+		</div>
 
 	</div>
 
