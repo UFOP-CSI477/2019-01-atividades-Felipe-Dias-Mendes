@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Cadastro de Produto</title>
+	<meta charset="utf-8">
+
+	<link rel="stylesheet" type="text/css" href="./Bootstrap/bootstrap.css">
+	
+</head>
+<body>
+
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<div class="container">	
+	
+			<ul class="nav nav-pills justify-content-end">
+				<li>
+					<h1 style="float = left; margin-right: 500px;"><span style="color: #87CEFA;">Shop</span>Nice</h1>
+				</li>
+			  <li class="nav-item">
+			    <a class="nav-link" href="principal.html">Página Principal</a>
+			  </li>
+			  <li class="nav-item">
+			    <a class="nav-link" href="Listar.html">Listar</a>
+			  </li>
+			  <li class="nav-item">
+			    <a class="nav-link" href="venda.html">Vender</a>
+			  </li>
+			  <li class="nav-item">
+			    <a class="nav-link active" href="cadastrar.html">Cadastrar</a>
+			  </li>
+			</ul>
+		</div>
+	</nav>
+
+	<div class="container">
+		<div class="jumbotron">
+			<h1>Cadastro</h1>
+			<p>Cadastre seu produto</p>
+		</div>
+	
+
+		<form name="dados" style="margin: 30px;">
+				
+			<div class="form-row">
+				<div class="form-group col-md-5">
+					<label for="nome" id="labelNome">Nome</label><br>
+					<input type="text" name="nome" placeholder="Ex: Celular" class="form-control">
+					<div id="alertaNome" style="display: none" class="alert alert-danger">
+						<span>Preencha o nome</span>
+					</div>
+				</div>
+
+				<div class="form-group col-md-7">
+					<label for="descricao" id="labelDescricao">Descrição</label>
+					<input type="text" name="descricao" placeholder="Escreva a descrição" class="form-control">
+					<div id="alertaDescricao" style="display: none" class="alert alert-danger">
+						<span>Preencha a descrição</span>
+					</div>
+				</div>
+
+			</div>
+
+			<div class="form-row">
+				<div class="form-group col-md-3">
+					<label for="codigo" id="labelCodigo">Código</label><br>
+					<input type="number" name="codigo" placeholder="Ex: 001" class="form-control">
+					<div id="alertaCodigo" style="display: none" class="alert alert-danger">
+						<span>Preencha o Código</span>
+					</div>
+				</div>
+
+				<div class="form-group  col-md-3">
+					<label for="Categoria">Categoria</label>
+					<select class="form-control">
+						<option value="0">Selecione a categoria:</option>
+						<option value="1">Tecnologia</option>
+						<option value="2">Eletrodomésticos</option>
+						<option value="3">Esporte e Lazer</option>
+						<option value="4">Joias e Relógios</option>
+					</select>
+				</div>
+
+				<div class="form-group col-md-3">
+					<label for="quantidade">Quantidade</label>
+					<input type="number" name="quantidade" placeholder="Ex: 100 un" class="form-control">
+				</div>
+
+				<div class="form-group col-md-3">
+					<label for="medida">Unidade de Medida</label>
+					<input type="text" name="medida" placeholder="Ex: kg, Litro, Km..." class="form-control">
+				</div>
+
+			</div>
+
+		<div class="form-row">
+			<div class="form-group col-md-6">
+				<label for="precocusto">Preço de Custo</label>
+				<input type="text" name="precocusto" placeholder="Ex: R$100" class="form-control">
+				
+			</div>
+
+			<div class="form-group col-md-6">
+				<label for="precovenda">Preço de Venda</label>
+				<input type="text" name="precovenda" placeholder="Ex: R$100" class="form-control">
+			</div>
+			
+		</div>
+
+		<div class="form-row">
+			<div class="form-group col-md-6">
+				<label for="fornecedor">Fornecedor</label>
+				<select class="form-control">
+					<option value="0">Selecione um Fornecedor:</option>
+					<option value="1">X</option>
+					<option value="2">Y</option>
+					<option value="3">Z</option>
+				</select>
+			</div>
+
+			<div class="form-group col-md-6">
+				<label for="garantia">Garantia</label>
+				<input type="text" name="garantia" placeholder="Ex: 3 meses" class="form-control">
+			</div>
+
+		</div>
+
+		<div class="custom-control custom-switch">
+			<input type="checkbox" name="aceite" id="aceite" class="custom-control-input">
+			<label class="custom-control-label" for="aceite">Aceite os Termos de Serviços</label>
+		</div>
+
+			<button type="submit" class="btn btn-primary mt-3" onclick="validar()">Cadastrar</button>
+			<button class="btn btn-secundary ml-2">Limpar</button>
+		</form>
+	</div>
+
+	<script type="text/javascript" src="funcoesCadastrar.js"></script>
+</body>
+</html>
