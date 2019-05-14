@@ -74,6 +74,28 @@ function validarSelect(campo, alerta, label){
 
 }
 
+function validarCheckBox(alerta, label){
+	var n = document.getElementById('aceite').checked;
+
+	if(n == false){
+		//Erro
+		document.getElementById(alerta).style.display = "block";
+		document.getElementById(label).classList.add("text-danger");
+
+		return false;
+
+
+	}
+	//Tudo corrento
+
+	document.getElementById(alerta).style.display="none";
+
+	document.getElementById(label).classList.remove("text-danger");
+	document.getElementById(label).classList.add("text-success");
+	return true;
+
+}
+
 function validar(){
 	var nome = document.dados.nome;
 	var descricao = document.dados.descricao;
@@ -82,7 +104,9 @@ function validar(){
 	var quant = document.dados.quantidade;
 	var medida = document.dados.medida;
 	var custo = document.dados.precocusto;
-
+	var venda = document.dados.precovenda;
+	var forne = document.dados.fornecedor;
+	var garantia = document.dados.garantia;
 
 	if(validarText(nome, "alertaNome", "labelNome") && 
 		validarText(descricao, "alertaDescricao", "labelDescricao") && 
@@ -90,7 +114,11 @@ function validar(){
 		validarSelect(categoria, "alertaCategoria", "labelCategoria") &&
 		validarNumero(quant, "alertaQuant", "labelQuant") &&
 		validarText(medida, "alertaUni", "labelUni") &&
-		validarText(custo, "alertaCusto", "labelCusto")
+		validarText(custo, "alertaCusto", "labelCusto") &&
+		validarText(venda, "alertaVenda", "labelVenda") &&
+		validarSelect(forne, "alertaForne", "labelForne") &&
+		validarText(garantia, "alertaGarantia", "labelGarantia") &&
+		validarCheckBox("alertaAceite", "labelAceite") 
 		/*Continua...*/ ){
 
 	}
