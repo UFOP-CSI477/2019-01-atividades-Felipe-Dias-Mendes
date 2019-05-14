@@ -70,32 +70,44 @@
 				</div>
 
 				<div class="form-group  col-md-3">
-					<label for="Categoria">Categoria</label>
-					<select class="form-control">
+					<label for="categoria" id="labelCategoria">Categoria</label>
+					<select class="form-control" name="categoria">
 						<option value="0">Selecione a categoria:</option>
 						<option value="1">Tecnologia</option>
 						<option value="2">Eletrodomésticos</option>
 						<option value="3">Esporte e Lazer</option>
 						<option value="4">Joias e Relógios</option>
 					</select>
+					<div id="alertaCategoria" style="display: none" class="alert alert-danger">
+						<span>Escolha uma Categoria</span>
+					</div>
 				</div>
 
 				<div class="form-group col-md-3">
-					<label for="quantidade">Quantidade</label>
+					<label for="quantidade" id="labelQuant">Quantidade</label>
 					<input type="number" name="quantidade" placeholder="Ex: 100 un" class="form-control">
+					<div id="alertaQuant" style="display: none" class="alert alert-danger">
+						<span>Preencha a Quantidade</span>
+					</div>
 				</div>
 
 				<div class="form-group col-md-3">
-					<label for="medida">Unidade de Medida</label>
+					<label for="medida" id="labelUni">Unidade de Medida</label>
 					<input type="text" name="medida" placeholder="Ex: kg, Litro, Km..." class="form-control">
+					<div id="alertaUni" style="display: none" class="alert alert-danger">
+						<span>Preencha a Unidade de Medida</span>
+					</div>
 				</div>
 
 			</div>
 
 		<div class="form-row">
 			<div class="form-group col-md-6">
-				<label for="precocusto">Preço de Custo</label>
+				<label for="precocusto" id="labelCusto">Preço de Custo</label>
 				<input type="text" name="precocusto" placeholder="Ex: R$100" class="form-control">
+				<div id="alertaCusto" style="display: none" class="alert alert-danger">
+					<span>Preencha o Preço de Custo</span>
+				</div>
 				
 			</div>
 
