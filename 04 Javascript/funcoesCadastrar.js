@@ -11,7 +11,7 @@ function validarText(campo, alerta, label){
 
 		campo.focus();
 		return false;
-	}
+		}
 	//Tudo corrento
 
 	document.getElementById(alerta).style.display="none";
@@ -22,7 +22,7 @@ function validarText(campo, alerta, label){
 	document.getElementById(label).classList.add("text-success");
 
 	return true;
-}
+	}
 
 function validarNumero(campo, alerta, label){
 	var n = parseFloat(campo.value);
@@ -36,7 +36,7 @@ function validarNumero(campo, alerta, label){
 
 		campo.focus();
 		return false;
-	}
+		}
 	//Tudo corrento
 
 	document.getElementById(alerta).style.display="none";
@@ -47,7 +47,7 @@ function validarNumero(campo, alerta, label){
 	document.getElementById(label).classList.add("text-success");
 	return true;
 
-}
+	}
 
 function validarSelect(campo, alerta, label){
 	var n = parseFloat(campo.value);
@@ -61,7 +61,7 @@ function validarSelect(campo, alerta, label){
 
 		campo.focus();
 		return false;
-	}
+		}
 	//Tudo corrento
 
 	document.getElementById(alerta).style.display="none";
@@ -72,7 +72,7 @@ function validarSelect(campo, alerta, label){
 	document.getElementById(label).classList.add("text-success");
 	return true;
 
-}
+	}
 
 function validarCheckBox(alerta, label){
 	var n = document.getElementById('aceite').checked;
@@ -94,7 +94,7 @@ function validarCheckBox(alerta, label){
 	document.getElementById(label).classList.add("text-success");
 	return true;
 
-}
+	}
 
 function validar(){
 	var nome = document.dados.nome;
@@ -121,8 +121,49 @@ function validar(){
 		validarCheckBox("alertaAceite", "labelAceite") 
 		/*Continua...*/ ){
 
-	}
-	
-	
+		}
 
+	}
+
+function limparAUX(){
+	var nome = document.dados.nome;
+	var descricao = document.dados.descricao;
+	var codigo = document.dados.codigo;
+	var categoria = document.dados.categoria;
+	var quant = document.dados.quantidade;
+	var medida = document.dados.medida;
+	var custo = document.dados.precocusto;
+	var venda = document.dados.precovenda;
+	var forne = document.dados.fornecedor;
+	var garantia = document.dados.garantia;
+	limpar(nome, "alertaNome", "labelNome");
+	limpar(descricao, "alertaDescricao", "labelDescricao");
+	limpar(codigo, "alertaCodigo", "labelCodigo");
+	limpar(categoria, "alertaCategoria", "labelCategoria");
+	limpar(quant, "alertaQuant", "labelQuant");
+	limpar(medida, "alertaUni", "labelUni");
+	limpar(custo, "alertaCusto", "labelCusto");
+	limpar(venda, "alertaVenda", "labelVenda");
+	limpar(forne, "alertaForne", "labelForne");
+	limpar(garantia, "alertaGarantia", "labelGarantia");
+	document.getElementById('aceite').checked == false;
+	limparCheck("alertaAceite", "labelAceite");
+	}
+
+function limpar(campo, alerta, label){
+
+	//campo == document.dados.valor;
+	document.getElementById(alerta).style.display = "none";
+	campo.classList.remove("is-invalid");
+	campo.classList.remove("is-valid");
+	document.getElementById(label).classList.remove("text-danger");
+	document.getElementById(label).classList.remove("text-success");
+
+	}
+
+function limparCheck(alerta, label){
+	document.getElementById(alerta).style.display = "none";
+	document.getElementById(label).classList.remove("text-danger");
+	document.getElementById(label).classList.remove("text-success");
 }
+	
