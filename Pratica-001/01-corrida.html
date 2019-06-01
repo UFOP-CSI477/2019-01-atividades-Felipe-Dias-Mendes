@@ -1,0 +1,107 @@
+<!--Felipe Dias Mendes 16.2.8275-->
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Corrida Rolimã</title>
+	<meta charset="utf-8">
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+<body>
+
+	<nav class="navbar navbar-expand-lg navbar-dark bg-light">
+		<div class="container">	
+	
+			<ul class="nav nav-pills justify-content-end">
+				<li>
+					<h1 style="float = left; margin-right: 500px;"><span style="color: #FF0000;">Rolimã</span>Turbo</h1>
+				</li>
+			  
+			</ul>
+		</div>
+	</nav>
+
+	<div class="container bg-light mt-3">
+			
+		<div class="form-group col-md-12">
+
+			<div class="form-row">
+				<h1 class="mx-auto">Insira um novo competidor</h1>
+			</div>
+
+			<div class="form-row">
+				<p class="mx-auto">Apenas é permitido 6 competidores simultaneamente.</p>
+			</div>
+
+			<div class="form-row">
+				<div class="form-group col-md-6">
+					<input type="text" name="nome" id="name" placeholder="Nome" class="form-control">
+					<div id="alertaNome" style="display: none" class="alert alert-danger">
+						<span>Preencha o nome</span>
+					</div>
+				</div>
+				<div class="form-group col-md-3">
+					<input type="number" name="largada" id="larg" placeholder="Largada" class="form-control">
+					<div id="alertaLargada" style="display: none" class="alert alert-danger">
+						<span>Preencha a Largada</span>
+					</div>
+				</div>
+				
+				<div class="form-group col-md-3">
+					<input type="number" name="tempo" id="time" placeholder="Tempo em segundos" class="form-control">
+					<div id="alertaTempo" style="display: none" class="alert alert-danger">
+						<span>Preencha o Tempo</span>
+					</div>
+				</div>
+
+			</div>
+
+			<div class="form-row">
+				<div class="form-group col-md-6 mx-auto">
+					<button class="btn btn-primary btn-danger btn-md btn-block" name="adiciona" onclick="validar()">Adiciona</button>
+				</div>
+			</div>
+
+		</div>
+
+	<table class="table table-striped table-dark">
+	  <thead>
+	    <tr>
+	      <th scope="col">Posição</th>
+	      <th scope="col">Largada</th>
+	      <th scope="col">Competidor(a)</th>
+	      <th scope="col">Tempo (s)</th>
+	      <th scope="col">Resultado</th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	    <tr>
+	      <th scope="row">1</th>
+	      <td>Mark</td>
+	      <td>Otto</td>
+	      <td>@mdo</td>
+	      <td>@mdo</td>
+	    </tr>
+	    <tr>
+	      <th scope="row">2</th>
+	      <td>Jacob</td>
+	      <td>Thornton</td>
+	      <td>@fat</td>
+	      <td>@mdo</td>
+	    </tr>
+	    <tr>
+	      <th scope="row">3</th>
+	      <td>Larry</td>
+	      <td>the Bird</td>
+	      <td>@twitter</td>
+	      <td>@mdo</td>
+	    </tr>
+	  </tbody>
+	</table>
+
+</div>
+
+	<script type="text/javascript" src="01-corrida.js"></script>
+</body>
+</html>
