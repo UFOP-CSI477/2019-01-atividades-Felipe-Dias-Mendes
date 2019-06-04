@@ -65,7 +65,7 @@ function validarSelect(campo, alerta){
 	}
 
 
-function validar(){
+function calcular(){
 	var peso = document.getElementById("peso");
 	var altura = document.getElementById("altura");
 
@@ -78,10 +78,18 @@ function validar(){
 		var res = floatPeso / Math.pow(floatAltura, 2);
 
 		document.getElementById("result").value = res.toFixed(2); //set
-
+		
+		if(res < 18.5){
+			document.getElementById("alertaSub").style.display = "block";
 		}
-
+		}else if(res < 24.9){
+				document.getElementById("alertaSaudavel").style.display = "block";
+		}else{
+			document.getElementById("alertaSobrepeso").style.display = "block";
+		}
+			
 	}
+
 
 function limparAUX(){
 	var nome = document.nome;
