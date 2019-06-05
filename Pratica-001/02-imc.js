@@ -39,11 +39,48 @@ $(document).ready(function(){
   //$("button[name='calculo']")
   $("#calcula").click(function(){
 
-    if ( validar( "input[name='peso']", "#alertaPeso")
-      && validar( "input[name='altura']", "#alertaAltura") ) {
+  	var peso = parseFloat( $("input[name='peso']").val() );
+    var alt = parseFloat( $("input[name='altura']").val() );
 
-        var peso = parseFloat( $("input[name='peso']").val() );
-        var alt = parseFloat( $("input[name='altura']").val() );
+    if(peso < 0){
+        	// Erro
+		    // Exibir alerta
+		    $("#alertaPeso").slideDown();
+
+		    // No input
+		    $("input[name='peso']").addClass("is-invalid");
+
+		    $("input[name='peso']").val("");
+		    $("input[name='peso']").focus();
+		    return false;
+        }else{
+        	// Oculta alerta
+			  $("#alertaPeso").hide();
+			  // Remove classes
+			  $("input[name='peso']").removeClass("is-invalid");
+        }
+
+        if(alt < 0){
+        	// Erro
+		    // Exibir alerta
+		    $("#alertaAltura").slideDown();
+
+		    // No input
+		    $("input[name='altura']").addClass("is-invalid");
+
+		    $("input[name='altura']").val("");
+		    $("input[name='altura']").focus();
+		    return false;
+        }else{
+        	// Oculta alerta
+			  $("#alertaAltura").hide();
+			  // Remove classes
+			  $("input[name='altura']").removeClass("is-invalid");
+        }
+
+
+    if ( validar( "input[name='peso']", "#alertaPeso")
+      && validar( "input[name='altura']", "#alertaAltura")) {
 
         var res = peso/Math.pow(alt,2);
 
