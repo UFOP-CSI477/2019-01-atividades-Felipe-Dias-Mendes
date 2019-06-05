@@ -39,17 +39,17 @@ $(document).ready(function(){
   //$("button[name='calculo']")
   $("#calcula").click(function(){
 
-    if ( validar( "input[name='peso']", "#alertaPeso")
-      && validar( "input[name='altura']", "#alertaAltura") ) {
+    if ( validar( "input[name='amplitude']", "#alertaAmplitude")
+      && validar( "input[name='intervalo']", "#alertaIntervalo") ) {
 
-        var peso = parseFloat( $("input[name='peso']").val() );
-        var alt = parseFloat( $("input[name='altura']").val() );
+        var a = parseFloat( $("input[name='amplitude']").val() );
+        var t = parseFloat( $("input[name='intervalo']").val() );
 
-        var res = peso/Math.pow(alt,2);
+        var m = Math.log10(a) + 3*Math.log10(8*t) - 2.92;
 
-        $("input[name='result']").val(res.toFixed(2));
+        $("input[name='result']").val(m.toFixed(2));
 
-        if(res < 18.5){
+        if(m < 3.5){
           // Exibir alerta
           $("#alerta0").slideDown();
           // Oculta alerta
@@ -58,7 +58,7 @@ $(document).ready(function(){
           $("#alerta3").hide();
           $("#alerta4").hide();
           $("#alerta5").hide();
-        }else if(res < 24.9){
+        }else if(m < 5.4){
           // Exibir alerta
           $("#alerta1").slideDown();
           // Oculta alerta
@@ -67,7 +67,7 @@ $(document).ready(function(){
           $("#alerta3").hide();
           $("#alerta4").hide();
           $("#alerta5").hide();
-        }else if(res < 29.9){
+        }else if(m < 6){
           // Exibir alerta
           $("#alerta2").slideDown();
           // Oculta alerta
@@ -76,7 +76,7 @@ $(document).ready(function(){
           $("#alerta3").hide();
           $("#alerta4").hide();
           $("#alerta5").hide();
-        }else if(res < 34.9){
+        }else if(m < 6.9){
           // Exibir alerta
           $("#alerta3").slideDown();
           // Oculta alerta
@@ -85,7 +85,7 @@ $(document).ready(function(){
           $("#alerta2").hide();
           $("#alerta4").hide();
           $("#alerta5").hide();
-        }else if(res < 39.9){
+        }else if(m < 7.9){
           // Exibir alerta
           $("#alerta4").slideDown();
           // Oculta alerta

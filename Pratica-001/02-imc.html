@@ -54,21 +54,47 @@
 				<div class="form-group col-md-5 mx-auto">
 					<input type="number" name="result" id="result" placeholder="Resultado" maxlength="5" class="form-control">
 					
-					<div id="alertaSub" style="display: none" class="alert alert-danger">
-						<span>Subnutrição</span>
+					<div id="alerta0" style="display: none" class="alert alert-danger">
+						<p>Abaixo de 18,5</p> 
+						<hr> 
+						<p>Subnutrição.</p>
 					</div>
-					<div id="alertaSaudavel" style="display: none" class="alert alert-danger">
-						<span>Peso Saudável</span>
+
+					<div id="alerta1" style="display: none" class="alert alert-success">
+						<p>Entre 18,5 e 24,9</p> 
+						<hr>
+						<p>Peso Saudável.</p>
 					</div>
-					<div id="alertaSobrepeso" style="display: none" class="alert alert-danger">
-						<span>Sobrepeso</span>
+					
+					<div id="alerta2" style="display: none" class="alert alert-waning">
+						<p>Entre 25,0 e 29,9</p> 
+						<hr>
+						<p>Sobrepeso.</p>
+					</div>
+					
+					<div id="alerta3" style="display: none" class="alert alert-danger">
+						<p>Entre 30,0 e 34,9</p> 
+						<hr>
+						<p>Obesidade grau 1.</p>
+					</div>
+
+					<div id="alerta4" style="display: none" class="alert alert-danger">
+						<p>Entre 35,0 e 39,9</p> 
+						<hr>
+						<p>Obesidade grau 2.</p>
+					</div>
+
+					<div id="alerta5" style="display: none" class="alert alert-danger">
+						<p>Acima de 40</p> 
+						<hr>
+						<p>Obesidade grau 3.</p>
 					</div>
 				</div>
 			</div>
 
 			<div class="form-row">
 				<div class="form-group col-md-5 mx-auto">
-					<button class="btn btn-primary btn-info btn-md btn-block" name="calcula" onclick="calcular()">Calcular</button>
+					<button class="btn btn-primary btn-info btn-md btn-block" name="calcula" id="calcula">Calcular</button>
 				</div>
 			</div>
 
@@ -76,6 +102,7 @@
 
 </div>
 
-	<script type="text/javascript" src="02-imc.js"></script>
+	<script src="jquery-3.3.1.js"></script>
+	<script src="02-imc.js"></script>
 </body>
 </html>
