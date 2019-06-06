@@ -42,7 +42,7 @@ $(document).ready(function(){
   	var peso = parseFloat( $("input[name='peso']").val() );
     var alt = parseFloat( $("input[name='altura']").val() );
 
-    if(peso < 0){
+    if(peso < 0 || peso > 500){
         	// Erro
 		    // Exibir alerta
 		    $("#alertaPeso").slideDown();
@@ -60,7 +60,7 @@ $(document).ready(function(){
 			  $("input[name='peso']").removeClass("is-invalid");
         }
 
-        if(alt < 0){
+        if(alt < 0 || alt > 2.5){
         	// Erro
 		    // Exibir alerta
 		    $("#alertaAltura").slideDown();
@@ -83,8 +83,12 @@ $(document).ready(function(){
       && validar( "input[name='altura']", "#alertaAltura")) {
 
         var res = peso/Math.pow(alt,2);
+    	var ideal1 = Math.pow(alt,2)*18.5;
+    	var ideal2 = Math.pow(alt,2)*24.9;
 
         $("input[name='result']").val(res.toFixed(2));
+        $("#idealp").text(ideal1.toFixed(2)+"Kg a "+ ideal2.toFixed()+"Kg.");
+        $("#ideal").slideDown();
 
         if(res < 18.5){
           // Exibir alerta
