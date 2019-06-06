@@ -35,7 +35,7 @@
 			</div>
 
 			<div class="form-row">
-				<div class="form-group col-md-6">
+				<div class="form-group col-md-3">
 					<input type="text" name="nome" id="name" placeholder="Nome" class="form-control">
 					<div id="alertaNome" style="display: none" class="alert alert-danger">
 						<span>Preencha o Nome</span>
@@ -55,53 +55,61 @@
 					</div>
 				</div>
 
+				<div class="form-group col-md-3">
+					<button class="btn btn-primary btn-danger btn-md btn-block" name="adiciona" id="adiciona" ">Adiciona</button>
+				</div>
+
 			</div>
 
 			<div class="form-row">
-				<div class="form-group col-md-6 mx-auto">
-					<button class="btn btn-primary btn-danger btn-md btn-block" name="adiciona" onclick="validar()">Adiciona</button>
+				
+				<div class="form-group col-md-11 mx-auto">
+					<table class="table table-striped table-dark" id="preview">
+					  <thead>
+					    <tr>
+					      <th scope="col">Largada</th>
+					      <th scope="col">Nome</th>
+					      <th scope="col">Tempo(s)</th>
+					    </tr>
+					  </thead>
+					  <tbody>
+					    
+					  </tbody>
+					</table>
 				</div>
+
 			</div>
 
 		</div>
 
-	<table class="table table-striped table-dark">
-	  <thead>
-	    <tr>
-	      <th scope="col">Posição</th>
-	      <th scope="col">Largada</th>
-	      <th scope="col">Competidor(a)</th>
-	      <th scope="col">Tempo (s)</th>
-	      <th scope="col">Resultado</th>
-	    </tr>
-	  </thead>
-	  <tbody>
-	    <tr>
-	      <th scope="row">1</th>
-	      <td>Mark</td>
-	      <td>Otto</td>
-	      <td>@mdo</td>
-	      <td>@mdo</td>
-	    </tr>
-	    <tr>
-	      <th scope="row">2</th>
-	      <td>Jacob</td>
-	      <td>Thornton</td>
-	      <td>@fat</td>
-	      <td>@mdo</td>
-	    </tr>
-	    <tr>
-	      <th scope="row">3</th>
-	      <td>Larry</td>
-	      <td>the Bird</td>
-	      <td>@twitter</td>
-	      <td>@mdo</td>
-	    </tr>
-	  </tbody>
-	</table>
+			<div class="form-row">
+				<div class="form-group col-md-2">
+					<button class="btn btn-primary btn-danger btn-md btn-block" name="result" id="result" ">Resultado</button>
+				</div>
+			</div>
+
+		<div class="form-row">
+			<div class="form-group col-md-11 mx-auto">
+					<table class="table table-striped table-dark" id="view" style="display: none">
+					  <thead>
+					    <tr>
+					      <th scope="col">Posição</th>
+					      <th scope="col">Largada</th>
+					      <th scope="col">Nome</th>
+					      <th scope="col">Tempo (s)</th>
+					      <th scope="col">Resultado</th>
+					    </tr>
+					  </thead>
+					  <tbody>
+					    
+					  </tbody>
+					</table>
+			</div>
+		</div>
 
 </div>
-
+	
+	<script src="jquery-3.3.1.js"></script>
 	<script type="text/javascript" src="01-corrida.js"></script>
 </body>
 </html>

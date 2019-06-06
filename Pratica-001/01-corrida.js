@@ -1,107 +1,127 @@
-//VERIFICAR OS CAMPOS DE adicionar
+function validar(campo, alerta) {
 
-function validarText(campo, alerta){
+  console.log("Validar: " + campo);
 
-	if(campo.value.length == 0){
-		//Erro
-		document.getElementById(alerta).style.display = "block";
+  //input[name='valorX']
+  //#idDoCampo
+  var n = parseFloat( $(campo).val() );
 
-		campo.classList.add("is-invalid");
+  if ( $(campo).val().length == 0) {
 
-		campo.focus();
-		return false;
-		}
-	//Tudo corrento
+    // Erro
+    // Exibir alerta
+    $(alerta).slideDown();
 
-	document.getElementById(alerta).style.display="none";
-	campo.classList.remove("is-invalid");
-	campo.classList.add("is-valid");
+    // No input
+    $(campo).addClass("is-invalid");
 
-	return true;
-	}
+    $(campo).val("");
+    $(campo).focus();
+    return false;
 
-function validarNumero(campo, alerta){
-	var n = parseFloat(campo.value);
+  }
 
-	if(campo.value.length == 0 || isNaN(n)){
-		//Erro
-		document.getElementById(alerta).style.display = "block";
+  // Tudo correto
 
-		campo.classList.add("is-invalid");
+  // Oculta alerta
+  $(alerta).hide();
+  // Remove classes
+  $(campo).removeClass("is-invalid");
+  // Adiciona classe ao input
+  $(campo).addClass("is-valid");
 
-		campo.focus();
-		return false;
-		}
-	//Tudo corrento
+  return true;
 
-	document.getElementById(alerta).style.display="none";
-	campo.classList.remove("is-invalid");
-	campo.classList.add("is-valid");
+}
 
-	return true;
+class competidor{
+    constructor(nome, larg, time){
+    	this.nome = nome;
+    	this.larg = larg;
+    	this.time = time;
+    }	
+ }
 
-	}
-
-function validarSelect(campo, alerta){
-	var n = parseFloat(campo.value);
-
-	if(campo.value == 0){
-		//Erro
-		document.getElementById(alerta).style.display = "block";
-
-		campo.classList.add("is-invalid");
-
-		campo.focus();
-		return false;
-		}
-	//Tudo corrento
-
-	document.getElementById(alerta).style.display="none";
-	campo.classList.remove("is-invalid");
-	campo.classList.add("is-valid");
-
-	return true;
-
-	}
+ var competidores = [];
 
 
-function validar(){
-	var nome = document.getElementById("name");
-	var largada = document.getElementById("larg");
-	var tempo = document.getElementById("time");
 
-	if(validarText(nome, "alertaNome") && 
-		validarNumero(largada, "alertaLargada") && 
-		validarNumero(tempo, "alertaTempo")
-		/*Continua...*/ ){
+$(document).ready(function(){
 
-		}
+  //$("button[name='calculo']")
+  $("#adiciona").click(function(){
 
-	}
 
-function limparAUX(){
-	var nome = document.nome;
-	var largada = document.largada;
-	var tempo = document.tempo;
-	limpar(nome, "alertaNome", "labelNome");
-	limpar(descricao, "alertaDescricao", "labelDescricao");
-	limpar(codigo, "alertaCodigo", "labelCodigo");
-	limpar(categoria, "alertaCategoria", "labelCategoria");
-	limpar(quant, "alertaQuant", "labelQuant");
-	limpar(medida, "alertaUni", "labelUni");
-	limpar(custo, "alertaCusto", "labelCusto");
-	limpar(venda, "alertaVenda", "labelVenda");
-	limpar(forne, "alertaForne", "labelForne");
-	limpar(garantia, "alertaGarantia", "labelGarantia");
-	document.getElementById('aceite').checked == false;
-	limparCheck("alertaAceite", "labelAceite");
-	}
+    if ( validar( "input[name='nome']", "#alertaNome")
+      && validar( "input[name='largada']", "#alertaLargada")
+      	&& validar("input[name='tempo']", "#alertaTempo")) {
 
-function limpar(campo, alerta){
+    	var nome = $("input[name='nome']").val();
+    	var larg = parseFloat( $("input[name='largada']").val() );
+    	var time = parseFloat( $("input[name='tempo']").val() );
 
-	//campo == document.dados.valor;
-	document.getElementById(alerta).style.display = "none";
-	campo.classList.remove("is-invalid");
-	campo.classList.remove("is-valid");
+    	var compet = new competidor(nome, larg, time);
 
-	}
+    	if(competidores.length < 5){
+    		competidores.push(compet);
+    		
+    		//inserindo na tabela de preview
+    		var novalinha = $("<tr>");
+    		var cols = "";
+
+
+    		cols += '<td>'+larg+'°</td>';
+    		cols += '<td>'+nome+'</td>';
+    		cols += '<td>'+time+'s</td>';
+    		
+    		novalinha.append(cols);
+    		$("#preview").append(novalinha);
+
+    		//novalinha.insertCell(1).innerHTML = name.value;
+    		//novalinha.insertCell(2).innerHTML = t.value;
+    		//"#preview".appendChild(novalinha);
+    	}
+
+      }
+
+  });
+
+
+  $("#result").click(function(){
+
+  	$("#view").slideDown();
+  	
+  	competidores.sort(function(a, b){return a - b});
+
+
+  	var i = 0;
+  	var posi = 1;
+  	while(i < competidores.length){
+
+  		var larg = competidores[i].larg;
+  		var nome = competidores[i].nome;
+  		var time = competidores[i].time;
+
+
+  		//inserindo na tabela de preview
+    		var novalinha = $("<tr>");
+    		var cols = "";
+
+
+    		cols += '<td>'+posi+'°</td>';
+    		cols += '<td>'+larg+'°</td>';
+    		cols += '<td>'+nome+'</td>';
+    		cols += '<td>'+time+'s</td>';
+    		//cols += '<td>'+winner+'s</td>';
+    		
+    		novalinha.append(cols);
+    		$("#view").append(novalinha);
+
+    	++posi;
+  		++i;
+  	}
+
+
+  });
+
+});
