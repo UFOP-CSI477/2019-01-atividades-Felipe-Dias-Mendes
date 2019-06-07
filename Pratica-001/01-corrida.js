@@ -86,13 +86,23 @@ $(document).ready(function(){
 
   });
 
-
+	
   $("#result").click(function(){
 
   	$("#view").slideDown();
   	
-  	competidores.sort(function(a, b){return a - b});
+  	competidores.sort(function(a, b){return a.time - b.time});
 
+  	var j = 0;
+  	var menor = competidores[j].time;
+  	while(j < competidores.length){
+
+  		if(menor > competidores[j].time){
+  			menor = competidores[j].time;
+  		}
+
+  		++j;
+  	}
 
   	var i = 0;
   	var posi = 1;
@@ -101,21 +111,31 @@ $(document).ready(function(){
   		var larg = competidores[i].larg;
   		var nome = competidores[i].nome;
   		var time = competidores[i].time;
-
+  		var control = 0;
 
   		//inserindo na tabela de preview
     		var novalinha = $("<tr>");
     		var cols = "";
 
-
-    		cols += '<td>'+posi+'°</td>';
+    		if (menor == time) {
+    		cols += '<td>'+1+'°</td>';
     		cols += '<td>'+larg+'°</td>';
-    		cols += '<td>'+nome+'</td>';
+    		cols += '<td>'+nome+'</td>';//nome
     		cols += '<td>'+time+'s</td>';
+    		cols += '<td>Vencedor(a)</td>';
+    		
+    		}else{
+    			cols += '<td>'+posi+'°</td>';
+    			cols += '<td>'+larg+'°</td>';
+    			cols += '<td>'+nome+'</td>';//nome
+    			cols += '<td>'+time+'s</td>';
+    			cols += '<td> - </td>';
+    		}
     		//cols += '<td>'+winner+'s</td>';
     		
     		novalinha.append(cols);
     		$("#view").append(novalinha);
+
 
     	++posi;
   		++i;
