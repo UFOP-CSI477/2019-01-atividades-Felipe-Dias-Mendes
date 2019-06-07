@@ -123,7 +123,7 @@ $(document).ready(function(){
     		cols += '<td>'+nome+'</td>';//nome
     		cols += '<td>'+time+'s</td>';
     		cols += '<td>Vencedor(a)</td>';
-    		
+    		posi = 1;
     		}else{
     			cols += '<td>'+posi+'°</td>';
     			cols += '<td>'+larg+'°</td>';
