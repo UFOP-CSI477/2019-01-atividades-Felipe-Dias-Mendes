@@ -30,10 +30,13 @@
           <a class="nav-link" href="/alunos/listar">Listar</a>
         </li>
         <li class="nav-item">    
+          <a class="nav-link" href="/regioes">Regiões</a>
+        </li>
+        <li class="nav-item">    
           <a class="nav-link" href="/estados">Estados</a>
         </li>
         <li class="nav-item">    
-          <a class="nav-link" href="/regioes">Regiões</a>
+          <a class="nav-link" href="/cidades">Cidades</a>
         </li>
       </ul>
     </div>

@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\regioe;
+use App\Cidade;
 use Illuminate\Http\Request;
 
-class RegioeController extends Controller
+class CidadeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,10 +15,10 @@ class RegioeController extends Controller
     public function index()
     {
         // Model -> recuperação dos dados
-        $regioes = regioe::all();
+        $cidades = Cidade::all();
         // View -> apresentar
-        return view('regioes.index')
-                ->with('regioes', $regioes);
+        return view('cidades.index')
+                ->with('cidades', $cidades);
     }
 
     /**
@@ -28,7 +28,7 @@ class RegioeController extends Controller
      */
     public function create()
     {
-        return view('regioes.create');
+        return view('cidades.create');
     }
 
     /**
@@ -39,75 +39,78 @@ class RegioeController extends Controller
      */
     public function store(Request $request)
     {
-        regioe::create($request->all());
+        Cidade::create($request->all());
 
         // Mensagem de sucesso:
         // -- Flash
         // mensagem -> campo
-        session()->flash('mensagem', 'Região inserido com sucesso!');
+        session()->flash('mensagem', 'Cidade inserido com sucesso!');
 
-        //return redirect('/regioes');
-        return redirect()->route('regioes.index');
+        //return redirect('/cidade');
+        return redirect()->route('cidades.index');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\regioe  $regioe
+     * @param  \App\Cidade  $cidade
      * @return \Illuminate\Http\Response
      */
-    public function show(regioe $regioe)
+    public function show(Cidade $cidade)
     {
         // $id <-
-        // $regioe = regioe::find($id)
-        return view('regioes.show')
-            ->with('regioe', $regioe);
+        // $cidade = Cadade::find($id)
+        return view('cidades.show')
+            ->with('cidade', $cidade);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\regioe  $regioe
+     * @param  \App\Cidade  $cidade
      * @return \Illuminate\Http\Response
      */
-    public function edit(regioe $regioe)
+    public function edit(Cidade $cidade)
     {
-        return view('regioes.edit')
-            ->with('regioe', $regioe);
+        return view('cidades.edit')
+            ->with('cidade', $cidade);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\regioe  $regioe
+     * @param  \App\Cidade  $cidade
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, regioe $regioe)
+    public function update(Request $request, Cidade $cidade)
     {
         // Opção 02:
-        $regioe->fill($request->all());
+        $cidade->fill($request->all());
 
         // Para ambas as opções:
-        $regioe->save();
+        $cidade->save();
 
-        session()->flash('mensagem', 'Região atualizado com sucesso!');
+        session()->flash('mensagem', 'Cidade atualizada com sucesso!');
 
-        return redirect()->route('regioes.show', $regioe->id);
+        return redirect()->route('cidades.show', $cidade->id);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\regioe  $regioe
+     * @param  \App\Cidade  $cidade
      * @return \Illuminate\Http\Response
      */
-    public function destroy(regioe $regioe)
+    public function destroy(Cidade $cidade)
     {
-        // Excluir o região
-        $regioe->delete();
-        session()->flash('mensagem', 'Região excluído com sucesso!');
+        // Validações ->
+        // -- chave estrangeira
 
-        return redirect()->route('regioes.index');
+        // Excluir o estado
+        $cidade->delete();
+        session()->flash('mensagem', 'Cidade excluída com sucesso!');
+
+        return redirect()->route('cidades.index');
     }
 }

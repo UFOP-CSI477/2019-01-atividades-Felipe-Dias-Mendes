@@ -1,4 +1,11 @@
-@extends('principal')
+// Validações ->
+        // -- chave estrangeira
+
+        // Excluir o estado
+        $estado->delete();
+        session()->flash('mensagem', 'Estado excluído com sucesso!');
+
+        return redirect()->route('estados.index');@extends('principal')
 
 @section('titulo', 'Inserir Estado')
 

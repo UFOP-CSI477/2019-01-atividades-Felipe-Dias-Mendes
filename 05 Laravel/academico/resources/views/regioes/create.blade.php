@@ -9,8 +9,7 @@
 
     @csrf
 
-    <p>Nome: <input type="text" name="nome"></p>
-    <p>Sigla: <input type="text" name="sigla"></p>
+    <p>Nome: <input type="text" name="name"></p>
 
     <input class="btn-primary" type="submit" name="btnSalvar" value="Incluir">
 

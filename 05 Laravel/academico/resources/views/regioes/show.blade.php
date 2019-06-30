@@ -7,7 +7,7 @@
   <h1 class="mx-auto">Regioe: {{ $regioe->nome }}</h1>
 
   <p>Código: {{ $regioe->id }}</p>
-  <p>Nome: {{ $regioe->nome }}</p>
+  <p>Nome: {{ $regioe->name }}</p>
 
   <!-- Voltar para a lista de estados //-->
   <a href="{{ route('regioes.index') }}">Voltar</a>

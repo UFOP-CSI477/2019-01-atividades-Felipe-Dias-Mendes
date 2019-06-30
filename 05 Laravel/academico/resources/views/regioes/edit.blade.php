@@ -9,7 +9,7 @@
     @csrf
     @method('PATCH')
 
-    <p>Nome: <input type="text" name="nome" value="{{ $regioe->nome }}"></p>
+    <p>Nome: <input type="text" name="name" value="{{ $regioe->name }}"></p>
 
     <input type="submit" name="btnSalvar" value="Editar">
 

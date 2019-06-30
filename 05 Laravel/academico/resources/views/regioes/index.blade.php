@@ -12,11 +12,11 @@
       <th>Nome</th>
       <th>Visualizar</th>
     </tr>
-  @foreach ($estados as $e)
+  @foreach ($regioes as $r)
     <tr>
-      <td>{{ $e->id }}</td>
-      <td><a href="{{ route('regioes.show', $e->id) }}">{{ $e->nome }}</a></td>
-      <td><a href="{{ route('regioes.show', $e->id) }}">Exibir</a></td>
+      <td>{{ $r->id }}</td>
+      <td><a href="{{ route('regioes.show', $r->id) }}">{{ $r->name }}</a></td>
+      <td><a href="{{ route('regioes.show', $r->id) }}">Exibir</a></td>
     </tr>
   @endforeach
   </table>

@@ -19,7 +19,5 @@ Route::resource('/estados', 'EstadoController');
 
 Route::resource('/regioes', 'RegioeController');
 
+Route::resource('/cidades', 'CidadeController');
 
-
-
- 
