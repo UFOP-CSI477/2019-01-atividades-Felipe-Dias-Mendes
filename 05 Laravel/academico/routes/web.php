@@ -21,3 +21,5 @@ Route::resource('/regioes', 'RegioeController');
 
 Route::resource('/cidades', 'CidadeController');
 
+Route::resource('/alunos', 'AlunoController');
+

@@ -8,7 +8,7 @@
 
   <p>Código: {{ $cidade->id }}</p>
   <p>Nome: {{ $cidade->name }}</p>
-  <p>Sigla: {{ $cidade->estado_id }}</p>
+  <p>Estado: {{ $cidade->estado_id }}</p>
 
 
   <!-- Voltar para a lista de cidades //-->
