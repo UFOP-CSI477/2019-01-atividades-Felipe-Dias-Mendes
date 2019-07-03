@@ -15,7 +15,7 @@ class CreateTestsTable extends Migration
     {
         Schema::create('tests', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedInteger('procedur_id');
+            $table->unsignedBigInteger('procedur_id');
             $table->date('date');
             $table->timestamps();
 

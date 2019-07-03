@@ -18,7 +18,7 @@
   
       <ul class="nav nav-pills justify-content-end">
         <li>
-          <h2 style="float = left; margin-right: 500px;"><span style="color: #87CEFA;"><img src="https://img.icons8.com/ios/50/000000/school-filled.png">Academico</span></h2>
+          <h2 style="float = left; margin-right: 500px;"><span style="color: #87CEFA;">Academico</span></h2>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/">Página Principal</a>

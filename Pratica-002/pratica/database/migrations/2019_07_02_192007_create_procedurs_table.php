@@ -13,14 +13,18 @@ class CreateProcedursTable extends Migration
      */
     public function up()
     {
-        // Schema::create('procedurs', function (Blueprint $table) {
-        //     $table->bigIncrements('id');
-        //     $table->string('name');
-        //     $table->decimal('price');
-        //     $table->unsignedInteger('user_id');
-        //     $table->timestamps();
+        Schema::create('procedurs', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('name');
+            $table->decimal('price');
+            $table->unsignedBigInteger('user_id');
+            $table->timestamps();
 
-        // });
+            $table->foreign('user_id')
+                      ->references('id')
+                      ->on('users');
+
+        });
     }
 
     /**
