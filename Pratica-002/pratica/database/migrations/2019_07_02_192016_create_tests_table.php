@@ -15,9 +15,14 @@ class CreateTestsTable extends Migration
     {
         Schema::create('tests', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('procedur_id');
             $table->date('date');
             $table->timestamps();
+
+            $table->foreign('user_id')
+                      ->references('id')
+                      ->on('users');
 
             $table->foreign('procedur_id')
                       ->references('id')
