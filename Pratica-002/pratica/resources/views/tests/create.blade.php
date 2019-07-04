@@ -6,15 +6,31 @@
 
 @section('conteudo')
 
+    <h1 class="mx-auto"><img src="https://img.icons8.com/ios/50/000000/health-checkup-filled.png">Inserir Exame</h1>
+
   <form class="form-group" method="post" action="{{ route('tests.store') }}">
 
     @csrf
     <div class="form-row">
 		<div class="form-group col-md-3">
-    		<p>Usuário: <input class="form-control" type="text" name="user_id"></p>
-		</div>
+            <p>Usuário:
+              <select class="form-control" name="user_id">
+                    <option value="{{ Auth::user()->id }}"
+                        > {{ Auth::user()->name }}</option>
+
+                </select>
+            </p>
+        </div>
         <div class="form-group col-md-3">
-            <p>Procedimento: <input class="form-control" type="text" name="procedur_id"></p>
+            <p>Procedimento: 
+                <select class="form-control" name="procedur_id">
+                    @foreach($procedur as $p)
+                        <option value="{{ $p->id }}"
+                            > {{ $p->name }}</option>
+                    @endforeach
+
+                </select>
+            </p>
         </div>
 		<div class="form-group col-md-3">
     		<p>Data: <input class="form-control" type="date" name="date"></p>

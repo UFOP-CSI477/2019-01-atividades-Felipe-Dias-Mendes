@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Procedur;
+use App\User;
 use Illuminate\Http\Request;
 
 class ProcedurController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
@@ -14,11 +16,13 @@ class ProcedurController extends Controller
      */
     public function index()
     {
-        // Model -> recuperação dos dados
-        $procedurs = Procedur::all();
+        // Model -> recuperação dos dados ordenados pelo nome
+        $procedurs = Procedur::orderBy('name', 'ASC')->get();
+        $user = User::all();
         // View -> apresentar
         return view('procedurs.index')
-                ->with('procedurs', $procedurs);
+                ->with('procedurs', $procedurs)
+                ->with('user', $user);
     }
 
     /**
@@ -27,8 +31,10 @@ class ProcedurController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-        return view('procedurs.create');
+    {   
+        $user = User::all();
+        return view('procedurs.create')
+                ->with('user', $user);
     }
 
     /**
@@ -39,6 +45,8 @@ class ProcedurController extends Controller
      */
     public function store(Request $request)
     {
+        //Verifica se o usuário está logado
+        $this->middleware('auth');
         Procedur::create($request->all());
 
         // Mensagem de sucesso:
@@ -60,8 +68,10 @@ class ProcedurController extends Controller
     {
         // $id <-
         // $procedur = Procedur::find($id)
+        $user = User::all();
         return view('procedurs.show')
-            ->with('procedur', $procedur);
+            ->with('procedur', $procedur)
+            ->with('user', $user);
     }
 
     /**
@@ -72,8 +82,12 @@ class ProcedurController extends Controller
      */
     public function edit(Procedur $procedur)
     {
+        //Verifica se o usuário está logado
+        $this->middleware('auth');
+        $user = User::all();
         return view('procedurs.edit')
-            ->with('procedur', $procedur);
+            ->with('procedur', $procedur)
+            ->with('user', $user);
     }
 
     /**
@@ -85,6 +99,8 @@ class ProcedurController extends Controller
      */
     public function update(Request $request, Procedur $procedur)
     {
+        //Verifica se o usuário está logado
+        $this->middleware('auth');
         $procedur->fill($request->all());
 
         // Para ambas as opções:
@@ -103,6 +119,8 @@ class ProcedurController extends Controller
      */
     public function destroy(Procedur $procedur)
     {
+        //Verifica se o usuário está logado
+        $this->middleware('auth');
          // Excluir o procedur
         $procedur->delete();
         session()->flash('mensagem', 'Procedimento excluído com sucesso!');

@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Test;
+use App\User;
+use App\Procedur;
 use Illuminate\Http\Request;
 
 class TestController extends Controller
-{
+{   
     /**
      * Display a listing of the resource.
      *
@@ -15,10 +17,14 @@ class TestController extends Controller
     public function index()
     {
         // Model -> recuperação dos dados
-        $tests = Test::all();
+        $tests = Test::orderBy('date', 'DESC')->get();
+        $user = User::orderBy('name', 'ASC')->get();
+        $procedur = Procedur::all();
         // View -> apresentar
         return view('tests.index')
-                ->with('tests', $tests);
+                ->with('tests', $tests)
+                ->with('user', $user)
+                ->with('procedur', $procedur);
     }
 
     /**
@@ -28,7 +34,11 @@ class TestController extends Controller
      */
     public function create()
     {
-        return view('tests.create');
+        $procedur = Procedur::orderBy('name', 'ASC')->get();
+        $user = User::all();
+        return view('tests.create')
+        ->with('user', $user)
+        ->with('procedur', $procedur);
     }
 
     /**
@@ -60,8 +70,12 @@ class TestController extends Controller
     {
         // $id <-
         // $test = Test::find($id)
+        $user = User::all();
+        $procedur = Procedur::all();
         return view('tests.show')
-            ->with('test', $test);
+            ->with('test', $test)
+            ->with('user', $user)
+            ->with('procedur', $procedur);
     }
 
     /**
@@ -71,9 +85,13 @@ class TestController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit(Test $test)
-    {
+    {   
+        $user = User::all();
+        $procedur = Procedur::all();
         return view('tests.edit')
-            ->with('test', $test);
+            ->with('test', $test)
+            ->with('user', $user)
+            ->with('procedur', $procedur);
 
     }
 

@@ -4,6 +4,8 @@
 
 @section('conteudo')
 
+    <h1 class="mx-auto"><img src="https://img.icons8.com/ios/50/000000/health-checkup-filled.png">Editar Exame</h1>
+
   <form class="form-group" method="post" action="{{ route('tests.update', $test->id) }}">
 
     @csrf
@@ -11,10 +13,36 @@
 
     <div class="form-row">
         <div class="form-group col-md-3">
-            <p>Usuário: <input class="form-control" type="text" name="user_id" value="{{ $test->user_id }}"></p>
+            <p> Usuário
+              <select class="form-control" name="user_id">
+                    @foreach($user as $u)
+                        <option value="{{ $u->id }}"
+
+                            @if ( $test->user_id == $u->id)
+                                selected
+                            @endif
+
+                            > {{ $u->name }}</option>
+                    @endforeach
+
+                </select>
+            </p>
         </div>
         <div class="form-group col-md-3">
-            <p>Procedimento: <input class="form-control" type="text" name="procedur_id" value="{{ $test->procedur_id }}"></p>
+            <p>Procedimento: 
+                <select class="form-control" name="procedur_id">
+                    @foreach($procedur as $p)
+                        <option value="{{ $p->id }}"
+
+                            @if ( $test->procedur_id == $p->id)
+                                selected
+                            @endif
+
+                            > {{ $p->name }}</option>
+                    @endforeach
+
+                </select>
+            </p>
         </div>
         <div class="form-group col-md-3">
             <p>Data: <input class="form-control" type="date" name="date" value="{{ $test->date }}"></p>
