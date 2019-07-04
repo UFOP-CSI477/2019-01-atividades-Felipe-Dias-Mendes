@@ -73,7 +73,7 @@ class TestController extends Controller
     public function edit(Test $test)
     {
         return view('tests.edit')
-            ->with('test', $tests);
+            ->with('test', $test);
 
     }
 
