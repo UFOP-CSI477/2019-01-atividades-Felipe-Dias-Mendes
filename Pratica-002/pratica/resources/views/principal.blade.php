@@ -34,13 +34,13 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/geral">Área Geral</a>
+          <a class="nav-link" href="/">Área Geral</a>
         </li>
         <li class="nav-item">    
-          <a class="nav-link" href="/tests">Pacientes</a>
+          <a class="nav-link" href="/tests">Exames</a>
         </li>
         <li class="nav-item">    
-          <a class="nav-link" href="/procedurs">Administradores</a>
+          <a class="nav-link" href="/procedurs">Procedimentos</a>
         </li>
         <li>
                         <!-- Authentication Links -->

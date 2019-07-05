@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Procedur;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ProcedurController extends Controller
 {   
@@ -27,13 +28,26 @@ class ProcedurController extends Controller
      */
     public function index()
     {
-        // Model -> recuperação dos dados ordenados pelo nome
-        $procedurs = Procedur::orderBy('name', 'ASC')->get();
-        $user = User::all();
-        // View -> apresentar
-        return view('procedurs.index')
-                ->with('procedurs', $procedurs)
-                ->with('user', $user);
+        if ( Auth::check() && (Auth::user()->type == 2 || Auth::user()->type == 1)){
+            if(Auth::user()->type == 2){
+                // Model -> recuperação dos dados ordenados pelo nome
+                $procedurs = Procedur::orderBy('name', 'ASC')->get();
+                $user = User::all();
+                // View -> apresentar
+                return view('procedurs.indexOP')
+                        ->with('procedurs', $procedurs)
+                        ->with('user', $user);
+            }else{
+                // Model -> recuperação dos dados ordenados pelo nome
+                $procedurs = Procedur::orderBy('name', 'ASC')->get();
+                $user = User::all();
+                // View -> apresentar
+                return view('procedurs.index')
+                        ->with('procedurs', $procedurs)
+                        ->with('user', $user);
+            }
+        }else
+            return redirect()->route('login');
     }
 
     /**
@@ -93,12 +107,25 @@ class ProcedurController extends Controller
      */
     public function edit(Procedur $procedur)
     {
-        //Verifica se o usuário está logado
-        $this->middleware('auth');
-        $user = User::all();
-        return view('procedurs.edit')
-            ->with('procedur', $procedur)
-            ->with('user', $user);
+        if ( Auth::check() && (Auth::user()->type == 2 || Auth::user()->type == 1)){
+            if(Auth::user()->type == 2){
+                //Verifica se o usuário está logado
+                $this->middleware('auth');
+                $user = User::all();
+                return view('procedurs.editOP')
+                    ->with('procedur', $procedur)
+                    ->with('user', $user);
+            }else{
+                //Verifica se o usuário está logado
+                $this->middleware('auth');
+                $user = User::all();
+                return view('procedurs.edit')
+                    ->with('procedur', $procedur)
+                    ->with('user', $user);
+            }
+        }else
+            return redirect()->route('login');
+        
     }
 
     /**

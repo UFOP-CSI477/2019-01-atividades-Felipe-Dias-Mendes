@@ -10,16 +10,14 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/', 'ProcedurController@geral');
 
-Route::get('/', function () {
-    return view('principal');
-});
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('/tests', 'TestController');
+// Route::get('/op', 'TestController');
 
 Route::resource('/procedurs', 'ProcedurController');
-Route::get('/geral', 'ProcedurController@geral');

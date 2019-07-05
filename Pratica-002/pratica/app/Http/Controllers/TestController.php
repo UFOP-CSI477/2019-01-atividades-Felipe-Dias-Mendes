@@ -6,14 +6,15 @@ use App\Test;
 use App\User;
 use App\Procedur;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class TestController extends Controller
 {   
 
-    public function __construct()
-    {
-      $this->middleware('auth');
-    }
+    // public function __construct()
+    // {
+    //   $this->middleware('auth');
+    // }
     /**
      * Display a listing of the resource.
      *
@@ -21,15 +22,42 @@ class TestController extends Controller
      */
     public function index()
     {
-        // Model -> recuperação dos dados
-        $tests = Test::orderBy('date', 'DESC')->get();
-        $user = User::orderBy('name', 'ASC')->get();
-        $procedur = Procedur::all();
-        // View -> apresentar
-        return view('tests.index')
-                ->with('tests', $tests)
-                ->with('user', $user)
-                ->with('procedur', $procedur);
+        if ( Auth::check() ){
+
+            if(Auth::user()->type == 2){
+                // Model -> recuperação dos dados
+                $tests = Test::orderBy('date', 'DESC')->get();
+                $user = User::orderBy('name', 'ASC')->get();
+                $procedur = Procedur::all();
+                // View -> apresentar
+                return view('tests.indexOP')
+                    ->with('tests', $tests)
+                    ->with('user', $user)
+                    ->with('procedur', $procedur);
+             }else if(Auth::user()->type == 3){
+                // Model -> recuperação dos dados
+                $tests = Test::where('user_id', Auth::user()->id)->orderBy('date', 'DESC')->get();
+                $user = User::orderBy('name', 'ASC')->get();
+                $procedur = Procedur::all();
+                // View -> apresentar
+                return view('tests.indexP')
+                    ->with('tests', $tests)
+                    ->with('user', $user)
+                    ->with('procedur', $procedur);
+             }else{
+                // Model -> recuperação dos dados
+                $tests = Test::orderBy('date', 'DESC')->get();
+                $user = User::orderBy('name', 'ASC')->get();
+                $procedur = Procedur::all();
+                // View -> apresentar
+                return view('tests.index')
+                    ->with('tests', $tests)
+                    ->with('user', $user)
+                    ->with('procedur', $procedur);
+            }
+        }else
+            return redirect()->route('login');
+        
     }
 
     /**
@@ -39,11 +67,14 @@ class TestController extends Controller
      */
     public function create()
     {
-        $procedur = Procedur::orderBy('name', 'ASC')->get();
-        $user = User::all();
-        return view('tests.create')
-        ->with('user', $user)
-        ->with('procedur', $procedur);
+        if ( Auth::check() && (Auth::user()->type == 3 || Auth::user()->type == 1)){
+            $procedur = Procedur::orderBy('name', 'ASC')->get();
+            $user = User::all();
+            return view('tests.create')
+            ->with('user', $user)
+            ->with('procedur', $procedur);
+        }else
+            return redirect()->route('login');
     }
 
     /**
@@ -72,15 +103,18 @@ class TestController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show(Test $test)
-    {
-        // $id <-
-        // $test = Test::find($id)
-        $user = User::all();
-        $procedur = Procedur::all();
-        return view('tests.show')
-            ->with('test', $test)
-            ->with('user', $user)
-            ->with('procedur', $procedur);
+    {   
+        if ( Auth::check() && (Auth::user()->type == 1 || Auth::user()->type == 3)){
+            // $id <-
+            // $test = Test::find($id)
+            $user = User::all();
+            $procedur = Procedur::all();
+            return view('tests.show')
+                ->with('test', $test)
+                ->with('user', $user)
+                ->with('procedur', $procedur);
+        }else
+            return redirect()->route('login');
     }
 
     /**
@@ -91,13 +125,26 @@ class TestController extends Controller
      */
     public function edit(Test $test)
     {   
-        $user = User::all();
-        $procedur = Procedur::all();
-        return view('tests.edit')
-            ->with('test', $test)
-            ->with('user', $user)
-            ->with('procedur', $procedur);
+        if ( Auth::check() && (Auth::user()->type == 1 || Auth::user()->type == 3)){
+            if(Auth::user()->type == 3){
+                $user = User::where('name', Auth::user()->name)->get();
+                    $procedur = Procedur::all();
+                    return view('tests.edit')
+                        ->with('test', $test)
+                        ->with('user', $user)
+                        ->with('procedur', $procedur);
+            }else{
+                $user = User::all();
+                    $procedur = Procedur::all();
+                    return view('tests.edit')
+                        ->with('test', $test)
+                        ->with('user', $user)
+                        ->with('procedur', $procedur);
+            }
 
+        }else
+            return redirect()->route('login');
+            // 
     }
 
     /**
@@ -109,14 +156,17 @@ class TestController extends Controller
      */
     public function update(Request $request, Test $test)
     {
-        $test->fill($request->all());
+        if ( Auth::check() && (Auth::user()->type == 1 || Auth::user()->type == 3)){
+            $test->fill($request->all());
 
-        // Para ambas as opções:
-        $test->save();
+            // Para ambas as opções:
+            $test->save();
 
-        session()->flash('mensagem', 'Exame atualizado com sucesso!');
+            session()->flash('mensagem', 'Exame atualizado com sucesso!');
 
-        return redirect()->route('tests.show', $test->id);
+            return redirect()->route('tests.show', $test->id);
+        }else
+            return redirect()->route('login');
     }
 
     /**
@@ -127,10 +177,13 @@ class TestController extends Controller
      */
     public function destroy(Test $test)
     {
-        // Excluir o test
-        $test->delete();
-        session()->flash('mensagem', 'Exame excluído com sucesso!');
+        if ( Auth::check() && (Auth::user()->type == 1 || Auth::user()->type == 3)){
+            // Excluir o test
+            $test->delete();
+            session()->flash('mensagem', 'Exame excluído com sucesso!');
 
-        return redirect()->route('tests.index');
+            return redirect()->route('tests.index');
+        }else
+            return redirect()->route('login');
     }
 }
