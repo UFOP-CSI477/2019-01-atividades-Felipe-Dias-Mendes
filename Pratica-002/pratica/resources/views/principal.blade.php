@@ -34,7 +34,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/procedurs">Área Geral</a>
+          <a class="nav-link" href="/geral">Área Geral</a>
         </li>
         <li class="nav-item">    
           <a class="nav-link" href="/tests">Pacientes</a>

@@ -29,7 +29,14 @@
                             <label for="type" class="col-md-4 col-form-label text-md-right">{{ __('Type') }}</label>
 
                             <div class="col-md-6">
-                                <input id="type" type="number" class="form-control @error('type') is-invalid @enderror" name="type" value="{{ old('type') }}" required autocomplete="type" autofocus>
+                                <div class="form-inline">
+                                    <input type="radio" name="type" id="admin" value="1" class="          form-check-input">
+                                    <label for="masculino" class="form-check-label">Administrador</label>
+                                    <input type="radio" name="type" id="Operador" value="2" class="           form-check-input ml-2">
+                                    <label for="feminino" class="form-check-label">Operador</label>
+                                    <input type="radio" name="type" id="Paciente" value="3" class="           form-check-input ml-2">
+                                    <label for="feminino" class="form-check-label">Paciente</label>
+                                </div>
 
                                 @error('type')
                                     <span class="invalid-feedback" role="alert">

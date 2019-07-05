@@ -7,7 +7,18 @@ use App\User;
 use Illuminate\Http\Request;
 
 class ProcedurController extends Controller
-{
+{   
+
+    public function geral()
+    {
+        // Model -> recuperação dos dados ordenados pelo nome
+        $procedurs = Procedur::orderBy('name', 'ASC')->get();
+        $user = User::all();
+        // View -> apresentar
+        return view('procedurs.geral')
+                ->with('procedurs', $procedurs)
+                ->with('user', $user);
+    }
 
     /**
      * Display a listing of the resource.
