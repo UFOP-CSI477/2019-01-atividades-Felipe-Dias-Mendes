@@ -28,7 +28,7 @@
       <td>
         @foreach($procedur as $p) 
           @if ( $t->procedur_id == $p->id)
-            {{ $p->name }} 
+            {{ $p->name }}
           @endif
         @endforeach</td>
       <td>{{ $t->date }}</td>
@@ -36,5 +36,6 @@
     </tr>
   @endforeach
   </table>
+  <p>Valor Total: {{ $price }}</p>
 
 @endsection

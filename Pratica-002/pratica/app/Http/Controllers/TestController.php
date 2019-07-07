@@ -39,11 +39,13 @@ class TestController extends Controller
                 $tests = Test::where('user_id', Auth::user()->id)->orderBy('date', 'DESC')->get();
                 $user = User::orderBy('name', 'ASC')->get();
                 $procedur = Procedur::all();
+                $price = Procedur::where('user_id', Auth::user()->id)->sum('price');
                 // View -> apresentar
                 return view('tests.indexP')
                     ->with('tests', $tests)
                     ->with('user', $user)
-                    ->with('procedur', $procedur);
+                    ->with('procedur', $procedur)
+                    ->with('price', $price);
              }else{
                 // Model -> recuperação dos dados
                 $tests = Test::orderBy('date', 'DESC')->get();

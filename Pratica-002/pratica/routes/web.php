@@ -12,7 +12,6 @@
 */
 Route::get('/', 'ProcedurController@geral');
 
-
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

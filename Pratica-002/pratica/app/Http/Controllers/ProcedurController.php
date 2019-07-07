@@ -93,6 +93,7 @@ class ProcedurController extends Controller
     {
         // $id <-
         // $procedur = Procedur::find($id)
+        
         $user = User::all();
         return view('procedurs.show')
             ->with('procedur', $procedur)
