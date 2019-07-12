@@ -38,7 +38,7 @@
     
     </div>
 
-    <input class="btn-primary" type="submit" name="btnSalvar" value="Incluir">
+    <input class="btn btn-primary" type="submit" name="btnSalvar" value="Incluir">
 
   </form>
 

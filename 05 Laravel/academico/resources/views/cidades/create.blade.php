@@ -19,7 +19,7 @@
     <p>Nome: <input type="text" name="name"></p>
     <p>Estado: <input type="text" name="estado_id"></p>
 
-    <input class="btn-primary" type="submit" name="btnSalvar" value="Incluir">
+    <input class="btn btn-primary" type="submit" name="btnSalvar" value="Incluir">
 
   </form>
 

@@ -19,7 +19,7 @@
     <p>Nome: <input type="text" name="nome"></p>
     <p>Sigla: <input type="text" name="sigla"></p>
 
-    <input class="btn-primary" type="submit" name="btnSalvar" value="Incluir">
+    <input class="btn btn-primary" type="submit" name="btnSalvar" value="Incluir">
 
   </form>
 
